@@ -1,0 +1,40 @@
+{
+  "name": "jw-api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare" : "npm run build",
+    "prepublishOnly" : "npm test && npm run lint",
+    "preversion" : "npm run lint",
+    "version" : "npm run format && git add -A src",
+    "postversion" : "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Clamparion/jw-api.git"
+  },
+  "keywords": ["JustWatch", "Api", "Search"],
+  "author": "clamparion",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Clamparion/jw-api/issues"
+  },
+  "homepage": "https://github.com/Clamparion/jw-api#readme",
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "jest": "^26.0.1",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.1.0",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.9.3"
+  }
+}
